@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace SG.Simulator
 {
+    /// <summary>
+    /// Main container of all components and updates.
+    /// </summary>
     public class Circuit
     {
         private readonly HashSet<Component> m_updates = new();
 
         public void Tick()
         {
+            // TODO: Cyclic detection, could be possible to get stuck in an infinite loop here.
+
             while (m_updates.Any())
             {
                 // Realize list as update calls can modify schedules.
