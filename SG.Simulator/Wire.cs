@@ -25,27 +25,30 @@ namespace SG.Simulator
 
         public LineState State { get; private set; }
 
-        private void OnPinsChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void OnPinsChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             switch (e.Action)
             {
             case NotifyCollectionChangedAction.Add:
-                SetPins(e.NewItems.Cast<Pin>(), State, this);
+                SetPins(e.NewItems?.Cast<Pin>(), State, this);
                 break;
 
             case NotifyCollectionChangedAction.Remove:
-                SetPins(e.OldItems.Cast<Pin>(), LineState.Floating, null);
+                SetPins(e.OldItems?.Cast<Pin>(), LineState.Floating, null);
                 break;
 
             case NotifyCollectionChangedAction.Replace:
-                SetPins(e.NewItems.Cast<Pin>(), State, this);
-                SetPins(e.OldItems.Cast<Pin>(), LineState.Floating, null);
+                SetPins(e.NewItems?.Cast<Pin>(), State, this);
+                SetPins(e.OldItems?.Cast<Pin>(), LineState.Floating, null);
                 break;
             }
         }
 
-        private void SetPins(IEnumerable<Pin> pins, LineState state, Wire wire)
+        private void SetPins(IEnumerable<Pin>? pins, LineState state, Wire? wire)
         {
+            if (pins == null)
+                return;
+
             foreach (var pin in pins)
             {
                 pin.Wire = wire;

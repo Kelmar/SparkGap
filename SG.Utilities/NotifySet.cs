@@ -13,7 +13,7 @@ namespace SG.Utilities
     {
         private readonly HashSet<T> m_base = new HashSet<T>();
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
+        public event NotifyCollectionChangedEventHandler? CollectionChanged;
 
         public int Count => m_base.Count;
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SG.Utilities;
+
 namespace SG.Simulator
 {
     /// <summary>
@@ -24,7 +26,7 @@ namespace SG.Simulator
         /// <summary>
         /// The wire this pin is connected to.
         /// </summary>
-        public Wire Wire { get; set; }
+        public Wire? Wire { get; set; }
 
         public PinType Type { get; set; }
 

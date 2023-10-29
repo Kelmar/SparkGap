@@ -8,7 +8,7 @@ namespace SG.Simulator
 {
     public class Circuit
     {
-        private readonly HashSet<Component> m_updates = new HashSet<Component>();
+        private readonly HashSet<Component> m_updates = new();
 
         public void Tick()
         {

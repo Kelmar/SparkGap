@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SG.Utilities;
+
 namespace SG.Simulator
 {
     /// <summary>
@@ -34,7 +36,7 @@ namespace SG.Simulator
         /// </summary>
         public Circuit Circuit { get; }
 
-        public string Label { get; set; }
+        public string Label { get; set; } = String.Empty;
 
         /// <summary>
         /// List of pins
@@ -42,8 +44,11 @@ namespace SG.Simulator
         /// <remarks>
         /// Using a set to prevent multiples of the same pin being connected.
         /// </remarks>
-        public NotifySet<Pin> Pins { get; } = new NotifySet<Pin>();
+        public NotifySet<Pin> Pins { get; } = new();
 
+        /// <summary>
+        /// Schedule the component for a deferred update.
+        /// </summary>
         public void Schedule()
         {
             Circuit.Schedule(this);
