@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparkGap", "SparkGap\SparkGap.csproj", "{49415812-4AEB-44F9-AFB2-9EF0C4F9EE2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SG.Simulator", "SG.Simulator\SG.Simulator.csproj", "{D4C0AE9E-544F-420F-A14C-5115A8104E9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SG.Utilities", "SG.Utilities\SG.Utilities.csproj", "{5151E2E5-A901-4754-8896-0F359009FA7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{49415812-4AEB-44F9-AFB2-9EF0C4F9EE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49415812-4AEB-44F9-AFB2-9EF0C4F9EE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49415812-4AEB-44F9-AFB2-9EF0C4F9EE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C0AE9E-544F-420F-A14C-5115A8104E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C0AE9E-544F-420F-A14C-5115A8104E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C0AE9E-544F-420F-A14C-5115A8104E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C0AE9E-544F-420F-A14C-5115A8104E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5151E2E5-A901-4754-8896-0F359009FA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5151E2E5-A901-4754-8896-0F359009FA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5151E2E5-A901-4754-8896-0F359009FA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5151E2E5-A901-4754-8896-0F359009FA7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
