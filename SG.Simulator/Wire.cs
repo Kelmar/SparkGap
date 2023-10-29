@@ -54,7 +54,7 @@ namespace SG.Simulator
                 pin.Wire = wire;
 
                 if (pin.Type == PinType.Input)
-                    pin.SetInput(state);
+                    pin.SetState(state);
             }
         }
 
@@ -81,7 +81,7 @@ namespace SG.Simulator
             UpdateState();
 
             foreach (var pin in Pins.Where(p => p.Type == PinType.Input))
-                pin.SetInput(State);
+                pin.SetState(State);
         }
     }
 }

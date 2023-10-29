@@ -27,13 +27,13 @@
             LineState stateB = m_pinB.FiniteState;
 
             if (stateA.IsError() || stateB.IsError())
-                Output.SetInput(LineState.Floating);
+                Output.SetState(LineState.Floating);
             else
             {
                 //Console.WriteLine("{0}.Update()", Label);
 
                 bool val = stateA == LineState.Low && stateB == LineState.Low;
-                Output.SetInput(val ? LineState.High : LineState.Low);
+                Output.SetState(val ? LineState.High : LineState.Low);
             }
         }
     }

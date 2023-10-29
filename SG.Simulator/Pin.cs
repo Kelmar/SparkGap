@@ -43,7 +43,7 @@ namespace SG.Simulator
             }
         }
 
-        public void SetInput(LineState newState)
+        public void SetState(LineState newState)
         {
             if (m_nextState == LineState.Floating)
                 m_nextState = newState;
