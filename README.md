@@ -13,10 +13,10 @@ It is possible to simulate an RS NOR Latch using the NOR gate.
 	- [ ] More built in components
 		- [X] Clock
 		- [X] AND Gate
-		- [ ] OR Gate
-		- [ ] XOR Gate
-		- [ ] Buffer Gate
-		- [ ] NOT Gate
+		- [X] OR Gate
+		- [X] XOR Gate
+		- [X] Buffer Gate
+		- [X] NOT Gate
 		- [X] NOR Gate
 		- [ ] NAND Gate
 		- [ ] XNOR Gate

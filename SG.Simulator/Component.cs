@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SG.Simulator.Components;
 using SG.Utilities;
 
 namespace SG.Simulator
@@ -19,6 +20,7 @@ namespace SG.Simulator
         protected Component(Circuit circuit)
         {
             Circuit = circuit;
+            circuit.AddComponent(this);
         }
 
         virtual protected void Dispose(bool disposing)
@@ -45,6 +47,16 @@ namespace SG.Simulator
         /// Using a set to prevent multiples of the same pin being connected.
         /// </remarks>
         public NotifySet<Pin> Pins { get; } = new();
+
+        /// <summary>
+        /// Get a list of all input pins.
+        /// </summary>
+        public IReadOnlyList<Pin> InputPins => Pins.Where(p => p.Type == PinType.Input).ToList();
+
+        /// <summary>
+        /// Get a list of all output pins.
+        /// </summary>
+        public IReadOnlyList<Pin> OutputPins => Pins.Where(p => p.Type == PinType.Output).ToList();
 
         /// <summary>
         /// Schedule the component for a deferred update.
