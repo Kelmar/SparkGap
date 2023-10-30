@@ -54,6 +54,10 @@ namespace SG.Simulator
             Circuit.Schedule(this);
         }
 
+        virtual public void FrameStart()
+        {
+        }
+
         abstract public void Update();
     }
 }

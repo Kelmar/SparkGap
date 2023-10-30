@@ -11,6 +11,7 @@ It is possible to simulate an RS NOR Latch using the NOR gate.
 	- [ ] Bus wires (multiple signals down a single pin/wire)
 	- [ ] Bidirectional pins.
 	- [ ] More built in components
+		- [X] Clock
 		- [X] AND Gate
 		- [ ] OR Gate
 		- [ ] XOR Gate
