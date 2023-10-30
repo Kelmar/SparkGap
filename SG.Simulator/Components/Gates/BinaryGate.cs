@@ -2,9 +2,13 @@
 {
     abstract public class BinaryGate : Component
     {
-        protected BinaryGate(Circuit circuit)
+        private readonly bool m_initAcc;
+
+        protected BinaryGate(Circuit circuit, bool initAcc)
             : base(circuit)
         {
+            m_initAcc = initAcc;
+
             InputA = new Pin(this, PinType.Input);
             InputB = new Pin(this, PinType.Input);
 
@@ -26,7 +30,7 @@
 
         public override void Update()
         {
-            bool acc = true;
+            bool acc = m_initAcc;
 
             foreach (var input in InputPins)
             {

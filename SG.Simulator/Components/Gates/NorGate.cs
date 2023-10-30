@@ -3,7 +3,7 @@
     public class NorGate : BinaryGate
     {
         public NorGate(Circuit circuit)
-            : base(circuit)
+            : base(circuit, true)
         {
         }
 

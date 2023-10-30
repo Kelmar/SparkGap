@@ -3,7 +3,7 @@
     public class OrGate : BinaryGate
     {
         public OrGate(Circuit circuit)
-            : base(circuit)
+            : base(circuit, false)
         {
         }
 

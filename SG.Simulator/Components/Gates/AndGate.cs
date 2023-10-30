@@ -3,7 +3,7 @@
     public class AndGate : BinaryGate
     {
         public AndGate(Circuit circuit)
-            : base(circuit)
+            : base(circuit, true)
         {
         }
 

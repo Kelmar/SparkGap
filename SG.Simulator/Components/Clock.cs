@@ -14,8 +14,6 @@ namespace SG.Simulator.Components
     /// </remarks>
     public class Clock : Component
     {
-        private int m_lastFrame;
-
         private bool m_state = false;
 
         public Clock(Circuit circuit)

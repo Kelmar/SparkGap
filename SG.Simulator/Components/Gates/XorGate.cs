@@ -3,7 +3,7 @@
     public class XorGate : BinaryGate
     {
         public XorGate(Circuit circuit)
-            : base(circuit)
+            : base(circuit, false)
         {
         }
 

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using SG.Simulator;
 using SG.Simulator.Components;
@@ -31,7 +29,7 @@ namespace SimTests
         }
 
         [Test]
-        public void AndGateFloatSettles()
+        public void FloatSettles()
         {
             m_circuit.Tick();
 
@@ -40,7 +38,7 @@ namespace SimTests
         }
 
         [Test]
-        public void AndGateGoesHigh()
+        public void GoesHigh()
         {
             var pin = new PinComponent(m_circuit);
             m_wire.Pins.Add(pin.Connection);
@@ -53,7 +51,7 @@ namespace SimTests
         }
 
         [Test]
-        public void AndGateGoesLow()
+        public void GoesLow()
         {
             var pin = new PinComponent(m_circuit);
             m_wire.Pins.Add(pin.Connection);
