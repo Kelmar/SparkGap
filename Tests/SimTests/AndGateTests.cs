@@ -3,27 +3,66 @@
 using NUnit.Framework;
 
 using SG.Simulator;
+using SG.Simulator.Components;
 using SG.Simulator.Components.Gates;
 
 namespace SimTests
 {
     public class AndGateTests
     {
+        private Circuit m_circuit;
+        private AndGate m_andGate;
+        private Wire m_wire;
+
+        [SetUp]
+        public void Setup()
+        {
+            m_circuit = new Circuit();
+            m_andGate = new AndGate(m_circuit);
+            m_wire = new Wire(m_circuit);
+
+            m_wire.Pins.Union(m_andGate.InputPins);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            m_circuit.Dispose();
+        }
+
         [Test]
         public void AndGateFloatSettles()
         {
-            using var circuit = new Circuit();
+            m_circuit.Tick();
 
-            var andGate = new AndGate(circuit);
+            Assert.That(!m_andGate.Output.State.IsError(), "AND gate shouldn't error");
+            Assert.That(m_andGate.Output.State, Is.Not.EqualTo(LineState.Floating), "AND gate shouldn't float.");
+        }
 
-            var wire = new Wire(circuit);
+        [Test]
+        public void AndGateGoesHigh()
+        {
+            var pin = new PinComponent(m_circuit);
+            m_wire.Pins.Add(pin.Connection);
 
-            wire.Pins.Union(andGate.InputPins);
+            pin.Connection.SetState(LineState.High);
 
-            circuit.Tick();
+            m_circuit.Tick();
 
-            Assert.That(!andGate.Output.State.IsError(), "AND gate shouldn't error");
-            Assert.That(andGate.Output.State, Is.Not.EqualTo(LineState.Floating), "AND gate shouldn't float.");
+            Assert.That(m_andGate.Output.State, Is.EqualTo(LineState.High));
+        }
+
+        [Test]
+        public void AndGateGoesLow()
+        {
+            var pin = new PinComponent(m_circuit);
+            m_wire.Pins.Add(pin.Connection);
+
+            pin.Connection.SetState(LineState.Low);
+
+            m_circuit.Tick();
+
+            Assert.That(m_andGate.Output.State, Is.EqualTo(LineState.Low));
         }
     }
 }
