@@ -21,7 +21,7 @@ namespace SimTests
             m_andGate = new AndGate(m_circuit);
             m_wire = new Wire(m_circuit);
 
-            m_wire.Pins.Union(m_andGate.InputPins);
+            m_wire.Pins.UnionWith(m_andGate.InputPins);
         }
 
         [TearDown]

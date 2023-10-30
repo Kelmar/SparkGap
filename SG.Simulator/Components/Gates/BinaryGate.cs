@@ -26,7 +26,7 @@
 
         public override void Update()
         {
-            bool acc = false;
+            bool acc = true;
 
             foreach (var input in InputPins)
             {

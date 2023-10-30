@@ -21,6 +21,7 @@ namespace SG.Simulator
         {
             Circuit = circuit;
             circuit.AddComponent(this);
+            Dirty = true;
         }
 
         virtual protected void Dispose(bool disposing)
@@ -39,6 +40,11 @@ namespace SG.Simulator
         public Circuit Circuit { get; }
 
         public string Label { get; set; } = String.Empty;
+
+        /// <summary>
+        /// Set if this component needs an update.
+        /// </summary>
+        public bool Dirty { get; private set; }
 
         /// <summary>
         /// List of pins
@@ -68,8 +74,13 @@ namespace SG.Simulator
 
         virtual public void FrameStart()
         {
+            if (Dirty)
+                Schedule();
         }
 
-        abstract public void Update();
+        virtual public void Update()
+        {
+            Dirty = false;
+        }
     }
 }
