@@ -37,8 +37,8 @@ namespace SimTests
         {
             m_circuit.Tick();
 
-            Assert.That(!m_norGate.Output.State.IsError(), "AND gate shouldn't error");
-            Assert.That(m_norGate.Output.State, Is.Not.EqualTo(LineState.Floating), "AND gate shouldn't float.");
+            Assert.That(!m_norGate.Output.State.IsError(), "NOR gate shouldn't error");
+            Assert.That(m_norGate.Output.State, Is.Not.EqualTo(LineState.Floating), "NOR gate shouldn't float.");
         }
 
         [Test]

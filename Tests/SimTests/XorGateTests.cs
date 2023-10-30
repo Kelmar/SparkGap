@@ -6,10 +6,10 @@ using SG.Simulator;
 
 namespace SimTests
 {
-    public class OrGateTests
+    public class XorGateTests
     {
         private Circuit m_circuit;
-        private OrGate m_orGate;
+        private XorGate m_xorGate;
 
         private Wire m_wireA;
         private Wire m_wireB;
@@ -18,12 +18,12 @@ namespace SimTests
         public void Setup()
         {
             m_circuit = new Circuit();
-            m_orGate = new OrGate(m_circuit);
+            m_xorGate = new XorGate(m_circuit);
             m_wireA = new Wire(m_circuit);
             m_wireB = new Wire(m_circuit);
 
-            m_wireA.Pins.Add(m_orGate.InputA);
-            m_wireB.Pins.Add(m_orGate.InputB);
+            m_wireA.Pins.Add(m_xorGate.InputA);
+            m_wireB.Pins.Add(m_xorGate.InputB);
         }
 
         [TearDown]
@@ -37,8 +37,8 @@ namespace SimTests
         {
             m_circuit.Tick();
 
-            Assert.That(!m_orGate.Output.State.IsError(), "OR gate shouldn't error");
-            Assert.That(m_orGate.Output.State, Is.Not.EqualTo(LineState.Floating), "OR gate shouldn't float.");
+            Assert.That(!m_xorGate.Output.State.IsError(), "XOR gate shouldn't error");
+            Assert.That(m_xorGate.Output.State, Is.Not.EqualTo(LineState.Floating), "XOR gate shouldn't float.");
         }
 
         [Test]
@@ -55,7 +55,14 @@ namespace SimTests
 
             m_circuit.Tick();
 
-            Assert.That(m_orGate.Output.State, Is.EqualTo(LineState.Low));
+            Assert.That(m_xorGate.Output.State, Is.EqualTo(LineState.Low));
+
+            pinA.Connection.SetState(LineState.High);
+            pinB.Connection.SetState(LineState.High);
+
+            m_circuit.Tick();
+
+            Assert.That(m_xorGate.Output.State, Is.EqualTo(LineState.Low));
         }
 
         [Test]
@@ -72,18 +79,14 @@ namespace SimTests
 
             m_circuit.Tick();
 
-            Assert.That(m_orGate.Output.State, Is.EqualTo(LineState.High));
+            Assert.That(m_xorGate.Output.State, Is.EqualTo(LineState.High));
 
             pinA.Connection.SetState(LineState.Low);
             pinB.Connection.SetState(LineState.High);
 
             m_circuit.Tick();
 
-            Assert.That(m_orGate.Output.State, Is.EqualTo(LineState.High));
-
-            pinA.Connection.SetState(LineState.High);
-
-            Assert.That(m_orGate.Output.State, Is.EqualTo(LineState.High));
+            Assert.That(m_xorGate.Output.State, Is.EqualTo(LineState.High));
         }
     }
 }
