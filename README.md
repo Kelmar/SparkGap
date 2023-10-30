@@ -2,7 +2,7 @@
 
 A logic simulator for digital circuits.
 
-At present the simulation has a single "Pin" component that can be used to set singnals of a wire, an AND gate, and a NOR gate.
+At present the simulation has a single "Pin" component that can be used to set signals of a wire, and several basic logic gates.
 
 It is possible to simulate an RS NOR Latch using the NOR gate.
 
