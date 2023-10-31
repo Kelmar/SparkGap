@@ -24,3 +24,7 @@ It is possible to simulate an RS NOR Latch using the NOR gate.
 	- [ ] Output control of basic gates.  (Allow for tristate output)
 - [ ] WPF Drawing of components.
 - [ ] WPF Main application.
+
+I'm still not settled on WPF as the primary UI for the application.  I'd like to use something cross platform, 
+but MAUI seems heavily focused on Mobile (and won't compile for me), and the other tools don't seem like great
+options.

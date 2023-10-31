@@ -7,4 +7,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SG.Simulator\SG.Simulator.csproj" />
+    <ProjectReference Include="..\SG.Utilities\SG.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
